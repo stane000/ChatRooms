@@ -33,7 +33,7 @@
           <!-- Logged In -->
           {% if request.user.is_authenticated %}
           <div class="header__user">
-            <a href="profile.html">
+            <a href="{% url 'user-profile' request.user.id %}">
               <div class="avatar avatar--medium active">
                 <img src="{% static 'images/avatar.svg' %}" />
               </div>
@@ -50,7 +50,7 @@
 
           <a href="{% url 'login' %}">
             <img src="{% static 'images/avatar.svg' %}" />
-            <p>Login22</p>
+            <p>Login</p>
           </a>
            {% endif %}
 
