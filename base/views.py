@@ -40,19 +40,39 @@ def logoutUser(request):
     logout(request)
     return redirect('home')
 
+# def registerUser(request):
+#     form = UserCreationForm()
+#     if request.method == "POST":
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save(commit=False)
+#             user.username = user.username.lower()
+#             user.save()
+#             login(request, user)
+#             redirect("home")
+#         else:
+#             messages.error(request, "An error occured during registration")
+#     return render(request, "base/login_register.html", {"form": form})
+
 def registerUser(request):
     form = UserCreationForm()
-    if request.method == "POST":
+
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
+            # username = user.username.lower()
+            # user_exist = User.objects.find(username=username)
+            # if user_exist:
+            #     messages.error(request, 'User Exist')
             user.username = user.username.lower()
             user.save()
             login(request, user)
-            redirect("home")
+            return redirect('home')
         else:
-            messages.error(request, "An error occured during registration")
-    return render(request, "base/login_register.html", {"form": form})
+            messages.error(request, f'An error occurred during registration: {str(form.errors)}')
+
+    return render(request, 'base/login_register.html', {'form': form})
 
 def home(request):
     q = request.GET.get('q') or ""
