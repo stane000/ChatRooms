@@ -80,17 +80,8 @@
         </nav>
       </div>
     </header>
-
-
-    <!-- {% if request.user.is_authenticated %}
-    <p>Hello {{request.user}}</p>
-    <a href="{% url 'logout' %}">Logout</a>
-    {% else %} 
-    <a href="{% url 'login' %}">Login</a>
-    {% endif %} -->
-
-
-    {% if messages %}
+    
+    {% if messages and not request.user.is_authenticated  %}
     <ul class="messages">
         {% for message in messages %}
         <li>{{ message }}</li>
