@@ -1163,3 +1163,12 @@ a {
   color: var(--color-main);
   font-weight: 1.4rem;
 }
+
+.roomListRoom.zoom-effect {
+  overflow: hidden;
+  position: relative;
+}
+
+.roomListRoom.zoom-effect:hover {
+  transform: scale(1.1); /* Adjust the scale factor as needed */
+}
