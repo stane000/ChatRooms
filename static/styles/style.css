@@ -1172,3 +1172,12 @@ a {
 .roomListRoom.zoom-effect:hover {
   transform: scale(1.1); /* Adjust the scale factor as needed */
 }
+
+.activities__box.zoom-effect {
+  overflow: hidden;
+  position: relative;
+}
+
+.activities__box.zoom-effect:hover {
+  transform: scale(1.1); /* Adjust the scale factor as needed */
+}
