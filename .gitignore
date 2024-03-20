@@ -1,3 +1,4 @@
 # Ignore virtual environment
 django-env/
 __pycache__/
+db.sqlite3
