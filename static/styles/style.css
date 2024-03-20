@@ -1043,8 +1043,8 @@ a {
 
 .room__conversation {
   margin-top: 1rem;
-  margin-bottom: 4rem;
-  height: 64%;
+  margin-bottom: 1rem;
+  height: 84%;
 }
 
 .threads h3 {
@@ -1058,7 +1058,7 @@ a {
   border-radius: 0.7rem;
   overflow-y: auto;
   height: 100%;
-  margin-top: 28vh;
+  margin-top: 18vh;
   padding: 0 2rem 4rem 2rem;
 }
 
