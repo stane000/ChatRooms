@@ -39,20 +39,6 @@ def logoutUser(request):
     logout(request)
     return redirect('home')
 
-# def registerUser(request):
-#     form = UserCreationForm()
-#     if request.method == "POST":
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             user = form.save(commit=False)
-#             user.username = user.username.lower()
-#             user.save()
-#             login(request, user)
-#             redirect("home")
-#         else:
-#             messages.error(request, "An error occured during registration")
-#     return render(request, "base/login_register.html", {"form": form})
-
 def registerUser(request):
     form = MyUserCreationForm()
 
@@ -193,4 +179,4 @@ def topicsPage(request):
 
 def activityPage(request):
     room_messages = Message.objects.all()
-    return render(request, "base/activity.html", {'room_messages': room_messages})
+    return render(request, "base/activity.html", {'room_messages': room_messages[:5]})
