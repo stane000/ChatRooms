@@ -428,7 +428,7 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -21%);
+  transform: translate(-50%, -28%);
   background-color: var(--color-dark);
   border-radius: 1rem;
   box-shadow: 1px 1px 6px 3px rgba(0, 0, 0, 0.1);
@@ -1182,3 +1182,33 @@ a {
   transform: scale(1.1); /* Adjust the scale factor as needed */
 }
 
+.room__message {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px; /* Add some space between input and button */
+}
+
+.input-container button {
+  background-color: #10cbd8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #45a049;
+}
