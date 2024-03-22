@@ -1199,7 +1199,17 @@ a {
   border-radius: 5px;
   margin-right: 10px; /* Add some space between input and button */
 }
+.input-container button {
+  background-color: #10cbd8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+}
 
+.input-container button:hover {
+  background-color: #45a049;
+}
 #---------------------------------------------------------
 #game-board {
   display: flex;
