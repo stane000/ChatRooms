@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<main class="create-room layout">
+    <div class="container">
+      <div class="layout__box">
+        <h1>Noughts and Crosses</h1>
+        <div id="game-board">
+            <div class="row">
+                <div class="cell" id="cell-0" onclick="makeMove(0)"></div>
+                <div class="cell" id="cell-1" onclick="makeMove(1)"></div>
+                <div class="cell" id="cell-2" onclick="makeMove(2)"></div>
+            </div>
+            <div class="row">
+                <div class="cell" id="cell-3" onclick="makeMove(3)"></div>
+                <div class="cell" id="cell-4" onclick="makeMove(4)"></div>
+                <div class="cell" id="cell-5" onclick="makeMove(5)"></div>
+            </div>
+            <div class="row">
+                <div class="cell" id="cell-6" onclick="makeMove(6)"></div>
+                <div class="cell" id="cell-7" onclick="makeMove(7)"></div>
+                <div class="cell" id="cell-8" onclick="makeMove(8)"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+    <script src="script.js"></script>
+
+
+{% endblock content %}

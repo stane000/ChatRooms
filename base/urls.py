@@ -16,6 +16,7 @@ urlpatterns = [
     path("delete-message/<str:pk>/", views.delete_message , name="delete-message"),
     path("update-user/", views.updateUser , name="update-user"),
     path("topics/", views.topicsPage , name="topics"),
-    path("activity/", views.activityPage , name="activity")
+    path("activity/", views.activityPage , name="activity"),
+    path("tic_toe/", views.ticToePage , name="tic_toe"),
 ]
 
