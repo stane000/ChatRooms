@@ -1,0 +1,38 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - main  # Adjust this according to your main branch name
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.12  # Set the Python version you are using
+        
+    - name: Clone tests repository
+      run: https://github.com/stane000/ChatRoomsTest.git
+      
+    - name: Install test dependencies
+      run: |
+        cd tests-repo
+        pip install -r requirements.txt  # Adjust the path as needed
+        
+    - name: Start Django server
+      run: |
+        cd django-project
+        python manage.py runserver &
+        sleep 5  # Wait for the server to start (adjust this as needed)
+        
+    - name: Run tests
+      run: |
+        cd ChatRoomsTests
+        pytest .\test_comunication.py
