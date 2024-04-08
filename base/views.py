@@ -12,27 +12,25 @@ from django.contrib.auth import authenticate, login, logout
 
 def loginPage(request):
 
-    page  = "login"
-
-    # if request.user.is_authenticated:
-    #     return redirect("home")
+    context = {"page": "login", "message": ""}
 
     if request.method =="POST":
         username = request.POST.get("username").lower()
         password = request.POST.get("password")
+
         try:
             user = User.objects.get(username=username)
         except:
-            messages.error(request, "user dos not exist")
-        
+            pass
+
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, "User name or password dos not exist")
-    context = {"page": page}
+            return render(request, 'base/login_register.html', {"page": "login", "message": "Email or password dos not exist!"})
+
     return render(request, 'base/login_register.html', context)
 
 def logoutUser(request):

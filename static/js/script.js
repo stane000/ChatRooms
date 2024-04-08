@@ -111,3 +111,4 @@ function resetGame() {
     board = ["", "", "", "", "", "", "", "", ""];
     document.querySelectorAll(".cell").forEach(cell => cell.innerText = "");
 }
+
