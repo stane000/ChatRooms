@@ -1,7 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from base.models import Room
-from .serializers import RoomSerializer
+from base.models import Room, User
+from .serializers import RoomSerializer, UserSerializer
 
 @api_view(['GET'])
 def getRoutes(request):
@@ -18,6 +18,12 @@ def getRooms(request):
     serializer = RoomSerializer(rooms, many=True)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def getUsers(request, key):
+    if key == "ovojezaporka":
+        rooms = User.objects.all()
+        serializer = UserSerializer(rooms, many=True)
+        return Response(serializer.data)
 
 @api_view(['GET'])
 def getRoom(request, pk):
