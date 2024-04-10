@@ -44,18 +44,13 @@ def registerUser(request):
         form = MyUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            # username = user.username.lower()
-            # user_exist = User.objects.find(username=username)
-            # if user_exist:
-            #     messages.error(request, 'User Exist')
             user.username = user.username.lower()
             user.save()
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, f'An error occurred during registration: {str(form.errors)}')
-
-    return render(request, 'base/login_register.html', {'form': form})
+            return render(request, 'base/login_register.html', {'form': form, "meessage": str(next(iter(form.errors.values())))})
+    return render(request, 'base/login_register.html', {'form': form, "message": ""})
 
 def home(request):
     q = request.GET.get('q') or ""
