@@ -77,7 +77,11 @@
                 <span>Hosted: {{room.created}}</span>
               </div>
               <div class="room__hosted">
-                <a href="{% url 'user-profile' room.host.id %}" class="room__author">
+                  {% if room.host %}
+                  <a href="{% url 'user-profile' room.host.id %}" class="room__author">
+                  {% else %}
+                  <p>User not longer exists</p>
+                  {% endif %}
                   <div class="avatar avatar--small">
                     <img src="{{room.host.avatar.url}}" />
                   </div>
