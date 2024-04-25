@@ -9,4 +9,4 @@ class RoomSerializer(ModelSerializer):
 class UserSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ["username", "email"]
+        fields = ["id", "username", "email"]
