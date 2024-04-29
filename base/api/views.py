@@ -15,7 +15,8 @@ def getRoutes(request):
         'GET /api/rooms',
         'GET /api/rooms/:id',
         'GET /api/users/:password',
-        'DELETE /api/delte_user/:id',
+        'DELETE /api/delete_user/:id',
+        'DELETE /api/delete_room/:id',
     ]
     return Response(routes)
 
@@ -31,6 +32,16 @@ def getRoom(request, pk):
     rooms = Room.objects.get(pk=pk)
     serializer = RoomSerializer(rooms)
     return Response(serializer.data)
+
+@api_view(['DELETE'])
+def deleteRoom(request, pk):
+    try:
+        room = Room.objects.get(pk=pk)
+    except User.DoesNotExist:
+        return Response({"error": "Room does not exist"}, status=status.HTTP_404_NOT_FOUND)
+    
+    room.delete()
+    return Response({"message": "Room deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET'])
 def getUsers(request, key):
