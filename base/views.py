@@ -127,6 +127,17 @@ def update_room(request, pk):
     context = {"form": form, 'topics': topics, 'room': room, }
     return render(request, "base/create-room.html", context)
 
+def delete_user(request, pk):
+    user = User.objects.get(id=pk)
+    # if request.user != room.host:
+    #     return HttpResponse("You are not allow here")
+
+    if request.method == "POST":
+        request.user.delete()
+        return redirect('home')
+
+    return render(request, "base/delete.html", {"obj": user})
+
 def delete_room(request, pk):
     room = Room.objects.get(id=pk)
     if request.user != room.host:
